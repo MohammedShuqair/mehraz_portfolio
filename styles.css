@@ -106,6 +106,44 @@ main {
 
 .summary {
     max-width: 72ch;
+    margin-bottom: 1rem;
+}
+
+.hero-contact,
+.footer-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    align-items: center;
+}
+
+.chip-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.5rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease, transform 0.15s ease;
+}
+
+.chip-button:hover,
+.chip-button:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.chip-button--small {
+    min-height: 2.2rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
 }
 
 .focus-grid {
@@ -493,6 +531,58 @@ main {
     margin-bottom: 0.6rem;
 }
 
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.contact-card h3 {
+    margin: 0;
+}
+
+.contact-card p {
+    margin: 0;
+}
+
+.contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.contact-list li {
+    display: grid;
+    gap: 0.2rem;
+}
+
+.contact-label {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.contact-list a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+    color: var(--accent);
+}
+
 .location {
     color: var(--muted);
     margin-bottom: 0;
@@ -518,6 +608,18 @@ h1 {
     font-size: 0.95rem;
 }
 
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem 1rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
 @media (max-width: 900px) {
     .focus-grid {
         grid-template-columns: 1fr;
@@ -527,7 +629,8 @@ h1 {
     .work-grid,
     .research-grid,
     .publication-groups,
-    .education-awards-grid {
+    .education-awards-grid,
+    .contact-grid {
         grid-template-columns: 1fr;
     }
 
