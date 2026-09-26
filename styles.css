@@ -135,14 +135,16 @@ main {
     background: transparent;
     border: 0;
     border-bottom: 1px solid var(--border-strong);
-    padding: 0 0 clamp(2.25rem, 4vw, 3.5rem);
+    padding: 0 0 clamp(2.75rem, 4vw, 3.9rem);
 }
 
 .hero-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 12rem;
-    gap: clamp(1.5rem, 3vw, 2.5rem);
+    grid-template-columns: 15rem minmax(0, 1fr);
+    gap: clamp(1.75rem, 3vw, 3rem);
     align-items: start;
+    max-width: 56rem;
+    margin: 0 auto;
 }
 
 .hero-copy {
@@ -151,6 +153,10 @@ main {
 
 .hero-media {
     margin: 0;
+    display: grid;
+    gap: 0.95rem;
+    justify-items: center;
+    text-align: center;
 }
 
 .hero-photo {
@@ -158,10 +164,48 @@ main {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
-    border-radius: 2px;
+    border-radius: 50%;
     border: 1px solid var(--border);
     background: #f1eee8;
-    filter: saturate(0.96);
+    filter: saturate(0.92);
+}
+
+.hero-identity {
+    margin: 0;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.hero-identity__line {
+    margin: 0;
+    color: var(--muted);
+    font-family: "Instrument Sans", "Segoe UI", sans-serif;
+    line-height: 1.4;
+}
+
+.hero-identity__line:nth-child(1) {
+    color: #293238;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.hero-identity__line:nth-child(2) {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.035em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.hero-identity__line:nth-child(3) {
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+    text-transform: uppercase;
 }
 
 .eyebrow {
@@ -190,14 +234,14 @@ h1 {
 }
 
 .lead {
-    margin: 1.25rem 0 0.65rem;
+    margin: 1.15rem 0 0.75rem;
     font-size: clamp(1.1rem, 1.05rem + 0.35vw, 1.35rem);
-    max-width: 64ch;
+    max-width: 58ch;
 }
 
 .summary {
-    max-width: 74ch;
-    margin-bottom: 1.2rem;
+    max-width: 66ch;
+    margin-bottom: 1.35rem;
     color: #2a2f33;
 }
 
@@ -239,6 +283,31 @@ h1 {
     min-height: 2rem;
     padding: 0.32rem 0.62rem;
     font-size: 0.76rem;
+}
+
+.icon,
+.interest-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+    flex: 0 0 auto;
+}
+
+.icon {
+    width: 0.95rem;
+    height: 0.95rem;
+}
+
+.icon svg,
+.interest-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .focus-grid {
@@ -304,35 +373,42 @@ h1 {
 
 .about-focus {
     align-self: start;
+    display: grid;
+    gap: 0.75rem;
 }
 
 .about-focus h3 {
-    margin-top: 0;
-}
-
-.tag-list {
     margin: 0;
-    padding-left: 0;
-    color: var(--text);
-    list-style: none;
 }
 
-.tag-list li {
+.interest-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+}
+
+.interest-card {
     display: flex;
-    align-items: flex-start;
-    gap: 0.65rem;
-}
-
-.tag-list li+li {
-    margin-top: 0.55rem;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0.62rem 0.68rem;
+    min-height: 2.8rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: var(--surface);
 }
 
 .interest-icon {
-    flex: 0 0 auto;
-    width: 1.35rem;
-    text-align: center;
-    line-height: 1.2;
-    margin-top: 0.05rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+.interest-card span:last-child {
+    font-family: "Instrument Sans", "Segoe UI", sans-serif;
+    font-size: 0.84rem;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
 }
 
 .work-card__image {
@@ -353,6 +429,7 @@ h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     border-radius: inherit;
 }
 
@@ -361,8 +438,8 @@ h1 {
 }
 
 .work-card__image--logo img {
-    object-fit: contain;
-    padding: 0.8rem;
+    object-fit: cover;
+    padding: 0;
 }
 
 .work-card__image span {
@@ -710,7 +787,12 @@ h1 {
     }
 
     .hero-media {
-        max-width: 11.2rem;
+        max-width: 14rem;
+        margin: 0 auto;
+    }
+
+    .interest-cards-grid {
+        grid-template-columns: 1fr;
     }
 
     .focus-grid,
@@ -775,7 +857,34 @@ h1 {
     }
 
     .hero-media {
-        max-width: 9.8rem;
+        max-width: 12rem;
+        gap: 0.75rem;
+    }
+
+    .hero-identity {
+        gap: 0.24rem;
+    }
+
+    .hero-identity__line {
+        letter-spacing: 0.03em;
+    }
+
+    .hero-identity__line:nth-child(1) {
+        font-size: 0.81rem;
+    }
+
+    .hero-identity__line:nth-child(2),
+    .hero-identity__line:nth-child(3) {
+        font-size: 0.72rem;
+    }
+
+    .interest-card {
+        min-height: 2.6rem;
+        padding: 0.56rem 0.62rem;
+    }
+
+    .interest-card span:last-child {
+        font-size: 0.81rem;
     }
 
     .focus-card,
