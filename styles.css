@@ -92,6 +92,31 @@ main {
     padding: 2rem;
 }
 
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 13rem;
+    gap: 1.25rem;
+    align-items: center;
+}
+
+.hero-copy {
+    min-width: 0;
+}
+
+.hero-media {
+    margin: 0;
+}
+
+.hero-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: #f5f7fa;
+}
+
 .eyebrow {
     margin: 0 0 0.8rem;
     color: var(--accent);
@@ -234,15 +259,35 @@ main {
 }
 
 .work-card__image {
-    min-height: 8.5rem;
+    height: 13.5rem;
     border: 1px dashed var(--border);
     border-radius: 10px;
+    overflow: hidden;
     background: linear-gradient(135deg, rgba(11, 95, 255, 0.06), rgba(11, 95, 255, 0.02));
     display: grid;
     place-items: center;
     color: var(--muted);
     font-size: 0.95rem;
     margin-bottom: 1rem;
+}
+
+.work-card__image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.work-card__image--logo {
+    background: #fff;
+    border-style: solid;
+    padding: 0;
+}
+
+.work-card__image--logo img {
+    object-fit: fill;
+    padding: 0;
 }
 
 .work-card__image span {
@@ -280,6 +325,33 @@ main {
 
 .work-card__link-row {
     margin: 1rem 0 0.25rem;
+}
+
+.leadership-gallery {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.gallery-item {
+    margin: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 8rem;
+    object-fit: cover;
+}
+
+.gallery-item--wide {
+    grid-column: span 2;
 }
 
 .research-grid {
@@ -483,6 +555,27 @@ main {
     font-weight: 600;
 }
 
+.org-with-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.inline-logo {
+    width: 1.6rem;
+    height: 1.6rem;
+    flex: 0 0 1.6rem;
+    object-fit: contain;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.inline-logo--small {
+    width: 1.4rem;
+    height: 1.4rem;
+    flex-basis: 1.4rem;
+}
+
 .timeline-item__content p:last-child {
     margin-bottom: 0;
 }
@@ -621,6 +714,22 @@ h1 {
 }
 
 @media (max-width: 900px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-media {
+        max-width: 12rem;
+    }
+
+    .leadership-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gallery-item--wide {
+        grid-column: span 2;
+    }
+
     .focus-grid {
         grid-template-columns: 1fr;
     }
@@ -685,9 +794,25 @@ h1 {
         padding: 1.1rem;
     }
 
+    .hero-media {
+        max-width: 10.5rem;
+    }
+
+    .leadership-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item--wide {
+        grid-column: span 1;
+    }
+
     .section-copy,
     .work-card {
         padding: 1.1rem;
+    }
+
+    .work-card__image {
+        height: 11rem;
     }
 
     .timeline-item {
